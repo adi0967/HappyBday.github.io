@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/icon.jpg">
+    <title>SUMA</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
+        @import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
+        @import url('https://fonts.googleapis.com/css?family=Anonymous+Pro');
+
+        .wrapper {
+            width: 100vw;
+            text-align: center;
+            margin-bottom: 200px;
+
+            span {
+                -webkit-text-stroke-width: 1.25px;
+                -webkit-text-stroke-color: #000000;
+                font-size: 45px;
+                text-shadow: 0 0px #f3c623, 0 0px #f2aaaa;
+                transform: translate(0, 100%) rotate(4deg);
+                animation: jump 2s ease-in-out infinite;
+                display: inline-block;
+                font-family: "Titan One", cursive;
+                color: #fff;
+
+            }
+        }
+
+        @keyframes jump {
+            33% {
+                text-shadow: 0 50px #f37121, 0 100px #f2aaaa;
+            }
+
+            50% {
+                transform: translate(0, 0) rotate(-4deg);
+                text-shadow: 0 0px #8fc0a9, 0 0px #84a9ac;
+            }
+
+            66.67% {
+                text-shadow: 0 -60px #d54062, 0 -100px #8fc0a9;
+            }
+        }
+
+        @media screen and (max-height: 200px) {
+            .wrapper {
+                transform: scale(0.3, 0.3);
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .wrapper {
+                span {
+                    font-size: 30px;
+                }
+            }
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            /*display: grid;*/
+            grid-auto-flow: column;
+            place-content: center;
+            /*gap: 50px;*/
+            background: #f08bcd;
+            filter: drop-shadow(0 0 4px #ff3e60) drop-shadow(0 0 4px #ff3e60);
+            /*overflow: hidden;*/
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .body {
+            grid-auto-flow: column;
+            gap: 50px;
+            place-content: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        img {
+            width: 250px;
+
+        }
+
+        #img1 {
+            outline: 100vmax solid #f363b2;
+            aspect-ratio: 1;
+            object-fit: cover;
+            --_m: radial-gradient(#000 69%, #0000 70%) 84.5%/50%;
+            -webkit-mask-box-image: var(--_m);
+            mask-border: var(--_m);
+            clip-path: polygon(-41% 0, 50% 91%, 141% 0);
+            /*outline: 100vmax solid #ff3e60;*/
+            outline-offset: -100vmax;
+            transition: .5s;
+            cursor: pointer;
+        }
+
+        #img2 {
+            outline: 100vmax solid #ff5f79;
+            aspect-ratio: 1;
+            object-fit: cover;
+            --_m: radial-gradient(#000 69%, #0000 70%) 84.5%/50%;
+            -webkit-mask-box-image: var(--_m);
+            mask-border: var(--_m);
+            clip-path: polygon(-41% 0, 50% 91%, 141% 0);
+            /*outline: 100vmax solid #ff3e60;*/
+            outline-offset: -100vmax;
+            transition: .5s;
+            cursor: pointer;
+        }
+
+        #img3 {
+            outline: 100vmax solid #f9417b;
+            aspect-ratio: 1;
+            object-fit: cover;
+            --_m: radial-gradient(#000 69%, #0000 70%) 84.5%/50%;
+            -webkit-mask-box-image: var(--_m);
+            mask-border: var(--_m);
+            clip-path: polygon(-41% 0, 50% 91%, 141% 0);
+            /*outline: 100vmax solid #ff3e60;*/
+            outline-offset: -100vmax;
+            transition: .5s;
+            cursor: pointer;
+        }
+
+        #img4 {
+            outline: 100vmax solid #fa1867;
+            aspect-ratio: 1;
+            object-fit: cover;
+            --_m: radial-gradient(#000 69%, #0000 70%) 84.5%/50%;
+            -webkit-mask-box-image: var(--_m);
+            mask-border: var(--_m);
+            clip-path: polygon(-41% 0, 50% 91%, 141% 0);
+            /*outline: 100vmax solid #ff3e60;*/
+            outline-offset: -100vmax;
+            transition: .5s;
+            cursor: pointer;
+        }
+
+        #img5 {
+            outline: 100vmax solid #fe0630;
+            aspect-ratio: 1;
+            object-fit: cover;
+            --_m: radial-gradient(#000 69%, #0000 70%) 84.5%/50%;
+            -webkit-mask-box-image: var(--_m);
+            mask-border: var(--_m);
+            clip-path: polygon(-41% 0, 50% 91%, 141% 0);
+            /*outline: 100vmax solid #ff3e60;*/
+            outline-offset: -100vmax;
+            transition: .5s;
+            cursor: pointer;
+        }
+
+        #img5:hover,
+        #img4:hover,
+        #img3:hover,
+        #img2:hover,
+        #img1:hover {
+            outline-color: #0000;
+        }
+
+        /* fallback until better support for mask-border */
+        @supports not (-webkit-mask-box-image: var(--_m)) {
+            img {
+                --_m:
+                    radial-gradient(at 70% 31%, #000 29%, #0000 30%),
+                    radial-gradient(at 30% 31%, #000 29%, #0000 30%),
+                    linear-gradient(#000 0 0) bottom/100% 50% no-repeat;
+                -webkit-mask: var(--_m);
+                mask: var(--_m);
+            }
+        }
+
+
+        /* Cursor */
+        .cursor {
+            position: sticky;
+            width: 24em;
+            margin: 0 auto;
+            border-right: 2px solid rgba(223, 89, 194, 0.75);
+            font-size: 30px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            transform: translateY(-50%);
+            color: #fff;
+        }
+
+        /* Animation */
+        .typewriter-animation {
+            animation:
+                typewriter 5s steps(50) 1s 1 normal both,
+                blinkingCursor 500ms steps(50) infinite normal;
+        }
+
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blinkingCursor {
+            from {
+                border-right-color: rgba(223, 89, 194, 0.75);
+            }
+
+            to {
+                border-right-color: transparent;
+            }
+        }
+
+
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            font-family: 'Gochi Hand', cursive;
+        }
+
+        .modal-content {
+            position: relative;
+            background: #ffb7b0;
+            ;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .modal img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fffdfd;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: red;
+        }
+
+        #chalktext h2 {
+            color: #fdfdf4;
+            line-height: 1.5;
+            display: inline;
+            background-image: linear-gradient(transparent 50%,
+                    #e36d67 50%,
+                    #d22d25 85%,
+                    transparent 85%,
+                    transparent 100%);
+            background-repeat: no-repeat;
+            background-size: 0% 100%;
+            animation: animatedBackground 2s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s forwards;
+        }
+
+        #chalktext h4 {
+            line-height: 1.5;
+            display: inline;
+            background-image: linear-gradient(transparent 50%,
+                    #e1fffe 50%,
+                    #b0f8ff 85%,
+                    transparent 85%,
+                    transparent 100%);
+            background-repeat: no-repeat;
+            background-size: 0% 100%;
+            animation: animatedBackground 2s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s forwards;
+        }
+
+        @keyframes animatedBackground {
+            to {
+                background-size: 100% 100%;
+            }
+        }
+
+        .circular-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(220, 218, 218, 0.2);
+            margin-left: 180px;
+        }
+
+        .circular-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        @media screen and (max-width:460px) {
+            .cursor span {
+                display: block;
+            }
+
+            .circular-image {
+                margin-right: 180px;
+            }
+
+        }
+
+        @media screen and (min-width:461px) and (max-width:530px) {
+            .circular-image {
+                margin-right: 165px;
+            }
+        }
+
+
+        @media screen and (min-width:1450px) {
+            #img1 {
+                margin-top: 0px;
+                margin-bottom: 50px;
+                margin-right: 0px;
+                margin-left: 0px;
+            }
+
+            #img2 {
+                margin-top: 150px;
+                margin-bottom: 0px;
+                margin-right: 0px;
+                margin-left: 0px;
+            }
+
+            #img4 {
+                margin-top: 200px;
+                margin-bottom: 0px;
+                margin-right: 0px;
+                margin-left: 0px;
+            }
+
+            #img5 {
+                margin-top: 0px;
+                margin-bottom: 100px;
+                margin-right: 0px;
+                margin-left: 0px;
+            }
+
+        }
+
+
+
+        .question {
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .answers button {
+            margin: 5px;
+            padding: 10px 15px;
+            background: #f874a7;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .answers button:hover {
+            background: white;
+            border-color: #f874a7;
+            color: #f874a7;
+        }
+
+        .score {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+
+        #nameModalContent {
+            background-color: #E63946;
+        }
+
+
+        #names h1 {
+            text-align: center;
+            text-transform: uppercase;
+            color: #F1FAEE;
+            font-size: 4rem;
+        }
+
+
+
+        .roller {
+            height: 4.125rem;
+            line-height: 4rem;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: #1D3557;
+        }
+
+
+        #spare-time {
+            font-size: 2rem;
+            font-style: italic;
+            letter-spacing: 1rem;
+            margin-top: 0;
+            color: #A8DADC;
+
+        }
+
+        .roller #rolltext {
+            position: absolute;
+            top: 0;
+            animation: slide 5s infinite;
+        }
+
+        @keyframes slide {
+            0% {
+                top: 0;
+            }
+
+            25% {
+                top: -4rem;
+            }
+
+            50% {
+                top: -8rem;
+            }
+
+            72.5% {
+                top: -12.25rem;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            h1 {
+                text-align: center;
+                text-transform: uppercase;
+                color: #F1FAEE;
+                font-size: 2.125rem;
+            }
+
+            .roller {
+                height: 2.6rem;
+                line-height: 2.125rem;
+            }
+
+            #spare-time {
+                font-size: 1rem;
+                letter-spacing: 0.1rem;
+            }
+
+            .roller #rolltext {
+                animation: slide-mob 5s infinite;
+            }
+
+            @keyframes slide-mob {
+                0% {
+                    top: 0;
+                }
+
+                25% {
+                    top: -2.125rem;
+                }
+
+                50% {
+                    top: -4.25rem;
+                }
+
+                72.5% {
+                    top: -6.375rem;
+                }
+            }
+        }
+
+
+
+        #puzzleContainer {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 5px;
+            margin-top: 20px;
+            padding-left: 10px;
+        }
+
+        .puzzle-piece {
+            width: 100px;
+            height: 100px;
+            background-size: 300px 300px;
+            border: 1px solid #ccc;
+            cursor: grab;
+        }
+
+        .message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.4rem;
+            color: #e91e63;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <span>H</span><span>A</span><span>P</span><span>P</span><span>Y</span>&nbsp;&nbsp;
+        <span>B</span><span>I</span><span>R</span><span>T</span><span>H</span><span>D</span><span>A</span><span>Y</span>&nbsp;&nbsp;
+        <span>!!</span>&nbsp;&nbsp;
+        <span>S</span><span>U</span><span>M</span><span>A</span><span>N</span><span>Y</span><span>A</span><span>!!</span>
+    </div>
+
+
+    <div class="text">
+        <p class="cursor typewriter-animation"><span>Hello hello dear,</span>&nbsp;<span>click on any heart :p</span>
+        </p>
+    </div>
+
+
+    <div class="body">
+
+        <img class="img1" src="/img/1.jpg" alt="U1" id="img1">
+        <img class="img1" src="/img/2.jpg" alt="U2" id="img2">
+        <img class="img1" src="/img/4.jpg" alt="U3" id="img3">
+        <img class="img1" src="/img/6.jpg" alt="U4" id="img4">
+        <img class="img1" src="/img/3.jpg" alt="U5" id="img5">
+
+    </div>
+
+
+
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div id="chalktext">
+                <h2>Happy 21st Birthday, my love!! </h2>
+                <br><br><br>
+                <div class="circular-image">
+                    <img src="/img/cir.jpg" alt="Circular Image">
+                </div>
+                <br><br>
+                <h4>
+                    Here’s to you, my batmolu, and to all the joy you bring to my life.
+                    I love you more than words can say.Thank you for your love, for your patience, and
+                    for being the wonderful person you are.
+                    You’ve shown me what it means to love deeply and to be loved unconditionally, and for that,
+                    I’m endlessly grateful.
+
+                    I’m so excited for all the new adventures this year and life ahead will bring for you—and for us.
+                    I’ll be right here by your side, celebrating your wins, lifting you up on tough days,
+                    and loving you every step of the way.
+
+                    <br><br><br><br>
+                    Roses are red,<br>
+                    For your happiness and health i shall pray <br>
+                    My dear molus, <br>
+                    Wishing you a happy birthday <br><br>
+                </h4>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal" id="quizModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal2">&times;</span>
+            <div id="quiz">
+                <div class="question" id="question"></div>
+                <div class="answers" id="answers"></div>
+            </div>
+            <div id="score" class="score"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="nameModal">
+        <div class="modal-content" id="nameModalContent">
+            <span class="close" id="closeModal3">&times;</span>
+            <div id="names">
+                <h1>I LOVE YOU MY :<div class="roller">
+                        <span id="rolltext">MOLU<br />
+                            CUTIE<br />
+                            BATMOLU<br />
+                            <span id="spare-time">THE MEOWST!!</span><br />
+                    </div>
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="puzzleModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal4">&times;</span>
+            <h2>Solve the Puzzle!</h2>
+            <div id="puzzleContainer"></div>
+            <div id="puzzleMessage" class="message">🎉 You did it! Happy Birthday, cuto! ❤️</div>
+        </div>
+    </div>
+
+
+    <audio id="modalSong" src="/img/RADWIMPS - Suzume ft. toaka (Instrumental).mp3" preload="auto" hidden></audio>
+    <audio id="modalSong1"
+        src="/img/Odimaga  Aavesham  Jithu Madhavan Fahadh Faasil  Sushin Shyam  Vinayak Nazriya Anwar Rasheed.mp3"
+        preload="auto" hidden></audio>
+    <audio id="modalSong2" src="/img/PUBLIC - Make You Mine (Lyrics) Put your hand in mine.mp3" preload="auto"
+        hidden></audio>
+    <audio id="modalSong3" src="/img/Genius.mp3" preload="auto" hidden></audio>
+
+
+    <script>
+        const modal = document.getElementById('imageModal');
+        const openModal = document.getElementById('img1');
+        const closeModal = document.getElementById('closeModal');
+        const modalSong1 = document.getElementById('modalSong1');
+
+        // Open modal when image is clicked
+        openModal.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modalSong1.currentTime = 0; // Start the song from the beginning
+            modalSong1.play();
+        });
+
+        // Close modal when the close button is clicked
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            modalSong1.pause(); // Pause the song
+            modalSong1.currentTime = 0; // Reset the song
+        });
+
+        // Close modal when clicking outside the modal content
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                modalSong1.pause(); // Pause the song
+                modalSong1.currentTime = 0; // Reset the song
+            }
+        });
+
+
+        document.getElementById('img5').addEventListener('click', function () {
+            window.location.href = 'https://www.youtube.com/watch?v=m78l28tcIE0'; // Replace with your YouTube URL
+        });
+
+
+
+
+        const namemodal = document.getElementById('nameModal');
+        const opennameModal = document.getElementById('img3');
+        const closenameModal = document.getElementById('closeModal3');
+        const modalSong = document.getElementById('modalSong');
+
+
+        // Open modal when image is clicked
+        opennameModal.addEventListener('click', () => {
+            namemodal.style.display = 'flex';
+            modalSong.currentTime = 0; // Start the song from the beginning
+            modalSong.play();
+        });
+
+        // Close modal when the close button is clicked
+        closenameModal.addEventListener('click', () => {
+            namemodal.style.display = 'none';
+            modalSong.pause(); // Pause the song
+            modalSong.currentTime = 0; // Reset the song
+        });
+
+        // Close modal when clicking outside the modal content
+        window.addEventListener('click', (event) => {
+            if (event.target === namemodal) {
+                namemodal.style.display = 'none';
+                modalSong.pause(); // Pause the song
+                modalSong.currentTime = 0; // Reset the song
+            }
+        });
+
+
+
+
+
+        const questions = [
+            {
+                question: "Who loves their better half more ?",
+                answers: ["Molu", "Luttu"],
+                correct: 1
+            },
+            {
+                question: "What’s my favorite thing about you?",
+                answers: ["Your giggle", "Your eyes", "Your teefs"],
+                correct: 1
+            },
+            {
+                question: "What did I wear on our first date?",
+                answers: ["Black Tee", "Checkered Shirt", "Blue hues Tee"],
+                correct: 2
+            },
+            {
+                question: "What’s my favorite memory of us?",
+                answers: ["Thol Trip", "Bike ride in rain", "Visiting fests", "Science city"],
+                correct: 2
+            },
+            {
+                question: "What’s my favourite nickname for you?",
+                answers: ["Babe", "Bub", "Cutie", "Moluss"],
+                correct: 3
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        const startQuizButton = document.getElementById('img2');
+        const quizModal = document.getElementById('quizModal');
+        const questionElement = document.getElementById('question');
+        const answersElement = document.getElementById('answers');
+        const scoreElement = document.getElementById('score');
+
+        const closeModal2 = document.getElementById('closeModal2');
+        const modalSong2 = document.getElementById('modalSong2');
+
+
+        function loadQuestion() {
+            const questionData = questions[currentQuestion];
+            questionElement.textContent = questionData.question;
+            answersElement.innerHTML = '';
+
+            questionData.answers.forEach((answer, index) => {
+                const button = document.createElement('button');
+                button.textContent = answer;
+                button.onclick = () => checkAnswer(index);
+                answersElement.appendChild(button);
+            });
+        }
+
+        function checkAnswer(selected) {
+            if (selected === questions[currentQuestion].correct) {
+                score++;
+            }
+
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                displayScore();
+            }
+        }
+
+        function displayScore() {
+            questionElement.style.display = 'none';
+            answersElement.style.display = 'none';
+            let message = '';
+
+            switch (score) {
+                case 5:
+                    message = "Perfect score! Well done boobie! ❤️";
+                    break;
+                case 4:
+                    message = "Great job! Amost there bub ! 😊";
+                    break;
+                case 3:
+                    message = "Not bad! But get better nikka! 😜";
+                    break;
+                case 2:
+                    message = "Hmm, manasilaayi manasilaayi ! 🙄";
+                    break;
+                default:
+                    message = "Tu mil mujhe chunty? 🤬";
+            }
+
+            scoreElement.textContent = `Your score: ${score}/5. ${message}`;
+        }
+
+        startQuizButton.onclick = () => {
+            quizModal.style.display = 'flex';
+            modalSong2.currentTime = 0; // Start the song from the beginning
+            modalSong2.play();
+            loadQuestion();
+        };
+
+        function reloadPage() {
+            location.reload();
+        }
+
+        closeModal2.addEventListener('click', () => {
+            quizModal.style.display = 'none';
+            modalSong2.pause(); // Pause the song
+            modalSong2.currentTime = 0; // Reset the song
+            reloadPage();
+        });
+
+
+        window.addEventListener('click', (event) => {
+            if (event.target === quizModal) {
+                quizModal.style.display = 'none';
+                modalSong2.pause(); // Pause the song
+                modalSong2.currentTime = 0; // Reset the song
+                reloadPage();
+            }
+        });
+
+
+
+
+
+
+
+
+        //Puzzle
+
+        const openPuzzleModal = document.getElementById('img4');
+        const puzzleModal = document.getElementById('puzzleModal');
+        const closeModal4 = document.getElementById('closeModal4');
+        const puzzleContainer = document.getElementById('puzzleContainer');
+        const puzzleMessage = document.getElementById('puzzleMessage');
+        const modalSong3 = document.getElementById('modalSong3');
+
+        const imageUrl = "/img/7.jpg"; // Replace with your image URL
+        const totalPieces = 9;
+
+        let pieces = [];
+
+        function createPuzzle() {
+            puzzleContainer.innerHTML = '';
+            pieces = Array.from({ length: totalPieces }, (_, i) => i);
+            shuffle(pieces);
+
+            pieces.forEach((piece, index) => {
+                const div = document.createElement('div');
+                div.className = 'puzzle-piece';
+                div.style.backgroundImage = `url(${imageUrl})`;
+                div.style.backgroundPosition = `${(piece % 3) * -100}px ${(Math.floor(piece / 3)) * -100}px`;
+                div.setAttribute('data-index', piece);
+                div.setAttribute('draggable', true);
+                div.addEventListener('dragstart', dragStart);
+                div.addEventListener('dragover', dragOver);
+                div.addEventListener('drop', drop);
+                puzzleContainer.appendChild(div);
+            });
+        }
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function dragStart(e) {
+            e.dataTransfer.setData('text/plain', e.target.dataset.index);
+        }
+
+        function dragOver(e) {
+            e.preventDefault();
+        }
+
+        function drop(e) {
+            const draggedIndex = e.dataTransfer.getData('text/plain');
+            const targetIndex = e.target.dataset.index;
+
+            const draggedPiece = document.querySelector(`.puzzle-piece[data-index="${draggedIndex}"]`);
+            const targetPiece = document.querySelector(`.puzzle-piece[data-index="${targetIndex}"]`);
+
+            // Swap the pieces
+            [draggedPiece.style.backgroundPosition, targetPiece.style.backgroundPosition] =
+                [targetPiece.style.backgroundPosition, draggedPiece.style.backgroundPosition];
+            [draggedPiece.dataset.index, targetPiece.dataset.index] =
+                [targetPiece.dataset.index, draggedPiece.dataset.index];
+
+            checkCompletion();
+        }
+
+        function checkCompletion() {
+            const currentOrder = Array.from(document.querySelectorAll('.puzzle-piece'))
+                .map(piece => parseInt(piece.dataset.index, 10));
+            if (currentOrder.every((val, i) => val === i)) {
+                puzzleMessage.style.display = 'block';
+            }
+        }
+
+        openPuzzleModal.addEventListener('click', () => {
+            puzzleModal.style.display = 'flex';
+            modalSong3.currentTime = 0; // Start the song from the beginning
+            modalSong3.play();
+            createPuzzle();
+        });
+
+        closeModal4.addEventListener('click', () => {
+            puzzleModal.style.display = 'none';
+            modalSong3.pause(); // Pause the song
+            modalSong3.currentTime = 0; // Reset the song
+        });
+
+        window.onclick = (event) => {
+            if (event.target === puzzleModal) {
+                puzzleModal.style.display = 'none';
+                modalSong3.pause(); // Pause the song
+            modalSong3.currentTime = 0; // Reset the song
+            }
+        };
+
+    </script>
+
+</body>
+
+</html>
